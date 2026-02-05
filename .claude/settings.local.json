@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(ls:*)",
+      "WebFetch(domain:grupodigitalo.com)",
+      "Bash(git add:*)"
+    ]
+  }
+}

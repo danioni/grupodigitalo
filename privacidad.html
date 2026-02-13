@@ -1,56 +1,78 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad - Grupo Digitalo</title>
-    <meta name="description" content="Política de privacidad de Grupo Digitalo SpA">
+    <meta name="description" content="Política de privacidad de Digitalo SpA">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         .legal-content {
-            padding: 140px 0 80px;
+            padding: 100px 0 64px;
         }
-        .legal-content h1 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-        .legal-content .updated {
-            font-size: 0.875rem;
-            color: var(--color-text-subtle);
+        .legal-header {
             margin-bottom: 48px;
         }
-        .legal-content h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            color: #fff;
-        }
-        .legal-content p, .legal-content li {
-            color: var(--color-text-muted);
-            margin-bottom: 16px;
-        }
-        .legal-content ul {
-            margin-left: 24px;
-            margin-bottom: 16px;
-        }
-        .legal-content li {
+        .legal-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
             margin-bottom: 8px;
+            color: var(--color-text);
+            letter-spacing: -0.02em;
         }
-        .back-link {
-            display: inline-block;
-            margin-top: 48px;
-            color: var(--color-accent);
+        .legal-header .updated {
+            font-size: 0.8125rem;
+            color: var(--color-text-subtle);
+        }
+        .legal-body h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+        .legal-body p {
+            color: var(--color-text-muted);
+            margin-bottom: 12px;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+        .legal-body ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        .legal-body li {
+            color: var(--color-text-muted);
+            margin-bottom: 8px;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+        .legal-body li strong {
+            color: var(--color-text);
+        }
+        .legal-body a {
+            color: var(--color-accent-light);
             text-decoration: none;
         }
+        .legal-body a:hover {
+            text-decoration: underline;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 48px;
+            color: var(--color-accent-light);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
         .back-link:hover {
-            color: var(--color-accent-hover);
+            gap: 10px;
         }
     </style>
 </head>
@@ -58,80 +80,99 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="nav-logo">Grupo Digitalo</a>
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </nav>
 
     <main class="legal-content">
         <div class="container">
-            <h1>Política de Privacidad</h1>
-            <p class="updated">Última actualización: Febrero 2026</p>
+            <div class="legal-header">
+                <h1>Política de Privacidad</h1>
+                <p class="updated">Última actualización: Febrero 2026</p>
+            </div>
 
-            <h2>1. Información que Recopilamos</h2>
-            <p>Grupo Digitalo SpA puede recopilar los siguientes tipos de información:</p>
-            <ul>
-                <li><strong>Información de contacto:</strong> nombre, correo electrónico, número de teléfono</li>
-                <li><strong>Información de uso:</strong> datos sobre cómo utiliza nuestros servicios</li>
-                <li><strong>Información técnica:</strong> dirección IP, tipo de navegador, dispositivo</li>
-                <li><strong>Información comercial:</strong> datos relacionados con las transacciones realizadas a través de nuestros servicios</li>
-            </ul>
+            <div class="legal-body">
+                <h2>1. Información que Recopilamos</h2>
+                <p>Digitalo SpA puede recopilar los siguientes tipos de información:</p>
+                <ul>
+                    <li><strong>Información de contacto:</strong> nombre, correo electrónico, número de teléfono</li>
+                    <li><strong>Información de uso:</strong> datos sobre cómo utiliza nuestros servicios</li>
+                    <li><strong>Información técnica:</strong> dirección IP, tipo de navegador, dispositivo</li>
+                    <li><strong>Información comercial:</strong> datos relacionados con las transacciones realizadas a través de nuestros servicios</li>
+                </ul>
 
-            <h2>2. Cómo Usamos su Información</h2>
-            <p>Utilizamos la información recopilada para:</p>
-            <ul>
-                <li>Proporcionar y mantener nuestros servicios</li>
-                <li>Mejorar y personalizar la experiencia del usuario</li>
-                <li>Comunicarnos con usted sobre actualizaciones y cambios</li>
-                <li>Cumplir con obligaciones legales</li>
-                <li>Detectar y prevenir fraudes o actividades no autorizadas</li>
-            </ul>
+                <h2>2. Cómo Usamos su Información</h2>
+                <p>Utilizamos la información recopilada para:</p>
+                <ul>
+                    <li>Proporcionar y mantener nuestros servicios</li>
+                    <li>Mejorar y personalizar la experiencia del usuario</li>
+                    <li>Comunicarnos con usted sobre actualizaciones y cambios</li>
+                    <li>Cumplir con obligaciones legales</li>
+                    <li>Detectar y prevenir fraudes o actividades no autorizadas</li>
+                </ul>
 
-            <h2>3. Compartición de Información</h2>
-            <p>No vendemos ni alquilamos su información personal a terceros. Podemos compartir información con:</p>
-            <ul>
-                <li>Proveedores de servicios que nos ayudan a operar nuestro negocio</li>
-                <li>Autoridades cuando sea requerido por ley</li>
-                <li>En caso de fusión, adquisición o venta de activos de la empresa</li>
-            </ul>
+                <h2>3. Compartición de Información</h2>
+                <p>No vendemos ni alquilamos su información personal a terceros. Podemos compartir información con:</p>
+                <ul>
+                    <li>Proveedores de servicios que nos ayudan a operar nuestro negocio</li>
+                    <li>Autoridades cuando sea requerido por ley</li>
+                    <li>En caso de fusión, adquisición o venta de activos de la empresa</li>
+                </ul>
 
-            <h2>4. Seguridad de los Datos</h2>
-            <p>Implementamos medidas de seguridad técnicas y organizativas para proteger su información personal contra acceso no autorizado, alteración, divulgación o destrucción. Esto incluye:</p>
-            <ul>
-                <li>Encriptación de datos en tránsito y en reposo</li>
-                <li>Control de acceso basado en roles</li>
-                <li>Monitoreo continuo de seguridad</li>
-                <li>Copias de seguridad regulares</li>
-            </ul>
+                <h2>4. Seguridad de los Datos</h2>
+                <p>Implementamos medidas de seguridad técnicas y organizativas para proteger su información personal contra acceso no autorizado, alteración, divulgación o destrucción. Esto incluye:</p>
+                <ul>
+                    <li>Encriptación de datos en tránsito y en reposo</li>
+                    <li>Control de acceso basado en roles</li>
+                    <li>Monitoreo continuo de seguridad</li>
+                    <li>Copias de seguridad regulares</li>
+                </ul>
 
-            <h2>5. Sus Derechos</h2>
-            <p>De acuerdo con la legislación chilena de protección de datos, usted tiene derecho a:</p>
-            <ul>
-                <li>Acceder a sus datos personales</li>
-                <li>Rectificar datos inexactos</li>
-                <li>Solicitar la eliminación de sus datos</li>
-                <li>Oponerse al procesamiento de sus datos</li>
-                <li>Solicitar la portabilidad de sus datos</li>
-            </ul>
+                <h2>5. Sus Derechos</h2>
+                <p>De acuerdo con la legislación chilena de protección de datos, usted tiene derecho a:</p>
+                <ul>
+                    <li>Acceder a sus datos personales</li>
+                    <li>Rectificar datos inexactos</li>
+                    <li>Solicitar la eliminación de sus datos</li>
+                    <li>Oponerse al procesamiento de sus datos</li>
+                    <li>Solicitar la portabilidad de sus datos</li>
+                </ul>
 
-            <h2>6. Cookies</h2>
-            <p>Utilizamos cookies y tecnologías similares para mejorar su experiencia. Puede configurar su navegador para rechazar cookies, aunque esto puede afectar la funcionalidad del servicio.</p>
+                <h2>6. Cookies</h2>
+                <p>Utilizamos cookies y tecnologías similares para mejorar su experiencia. Puede configurar su navegador para rechazar cookies, aunque esto puede afectar la funcionalidad del servicio.</p>
 
-            <h2>7. Retención de Datos</h2>
-            <p>Conservamos su información personal solo durante el tiempo necesario para cumplir con los fines descritos en esta política, a menos que la ley requiera un período de retención más largo.</p>
+                <h2>7. Retención de Datos</h2>
+                <p>Conservamos su información personal solo durante el tiempo necesario para cumplir con los fines descritos en esta política, a menos que la ley requiera un período de retención más largo.</p>
 
-            <h2>8. Cambios a esta Política</h2>
-            <p>Podemos actualizar esta política de privacidad periódicamente. Le notificaremos cualquier cambio publicando la nueva política en esta página y actualizando la fecha de "última actualización".</p>
+                <h2>8. Cambios a esta Política</h2>
+                <p>Podemos actualizar esta política de privacidad periódicamente. Le notificaremos cualquier cambio publicando la nueva política en esta página y actualizando la fecha de "última actualización".</p>
 
-            <h2>9. Contacto</h2>
-            <p>Si tiene preguntas sobre esta política de privacidad o sobre cómo manejamos sus datos, contáctenos en: <a href="mailto:contacto@grupodigitalo.com" style="color: var(--color-accent);">contacto@grupodigitalo.com</a></p>
+                <h2>9. Contacto</h2>
+                <p>Si tiene preguntas sobre esta política de privacidad o sobre cómo manejamos sus datos, contáctenos en: <a href="mailto:contacto@grupodigitalo.com">contacto@grupodigitalo.com</a></p>
 
-            <a href="/" class="back-link">← Volver al inicio</a>
+                <a href="/" class="back-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                    Volver al inicio
+                </a>
+            </div>
         </div>
     </main>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p class="copyright">© 2026 Grupo Digitalo SpA · Santiago, Chile</p>
+                <p class="copyright">© 2026 Digitalo SpA · Todos los derechos reservados</p>
                 <div class="footer-links">
                     <a href="/terminos.html">Términos</a>
                     <a href="/privacidad.html">Privacidad</a>
@@ -139,5 +180,25 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+        } else if (!systemPrefersDark) {
+            html.setAttribute('data-theme', 'light');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>

@@ -583,6 +583,17 @@ a.eco-card:hover {
 .cta-link svg {
     width: 16px;
     height: 16px;
+    flex-shrink: 0;
+}
+
+/* Force all SVGs to respect dimensions */
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+svg[viewBox] {
+    overflow: visible;
 }
 
 /* Vision Section */

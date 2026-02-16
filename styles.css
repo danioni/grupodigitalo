@@ -816,6 +816,233 @@ svg[viewBox] {
     color: var(--color-text);
 }
 
+/* Para Quién Section */
+#para-quien {
+    background: var(--color-bg-elevated);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.para-quien-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.para-quien-text h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 12px;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.para-quien-text p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+.para-quien-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.para-quien-card {
+    padding: 20px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+}
+
+.para-quien-card strong {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-accent-light);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.para-quien-card span {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+[data-theme="light"] .para-quien-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Arquitectura Section */
+.arquitectura-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.arquitectura-intro h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 12px;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.arquitectura-intro p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+.arquitectura-capas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.capa-item {
+    padding: 20px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.capa-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.3;
+}
+
+.capa-count {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-accent-light);
+}
+
+.capa-desc {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.soluciones-header h4 {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text-subtle);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.soluciones-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.solucion-card {
+    padding: 14px 16px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.15s ease;
+}
+
+.solucion-card:hover {
+    border-color: var(--color-border-light);
+}
+
+.solucion-rol {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: var(--color-text-subtle);
+}
+
+.solucion-card strong {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+[data-theme="light"] .capa-item {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .solucion-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Inteligencia Section */
+#inteligencia {
+    background: var(--color-bg-elevated);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.inteligencia-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.inteligencia-text h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 12px;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.inteligencia-text p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+.inteligencia-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.inteligencia-card {
+    padding: 16px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.inteligencia-card strong {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-purple);
+}
+
+.inteligencia-card span {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+}
+
+[data-theme="light"] .inteligencia-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links {
@@ -841,6 +1068,7 @@ svg[viewBox] {
 
     .hero-meta {
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
     }
 
@@ -864,6 +1092,22 @@ svg[viewBox] {
     .about-content {
         grid-template-columns: 1fr;
         gap: 24px;
+    }
+
+    .para-quien-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .arquitectura-capas {
+        grid-template-columns: 1fr;
+    }
+
+    .soluciones-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .inteligencia-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .footer-content {

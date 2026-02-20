@@ -400,7 +400,9 @@ a.eco-card:hover {
 }
 
 /* Ecosystem foundation band */
-.eco-foundation {
+a.eco-foundation,
+a.eco-foundation:hover,
+a.eco-foundation:visited {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -414,13 +416,8 @@ a.eco-card:hover {
     transition: all 0.15s ease;
 }
 
-.eco-foundation:hover {
-    border-color: var(--color-amber);
+a.eco-foundation:hover {
     transform: translateY(-1px);
-}
-
-.eco-foundation * {
-    text-decoration: none;
 }
 
 .eco-foundation-left {
@@ -429,25 +426,25 @@ a.eco-card:hover {
     gap: 6px;
 }
 
-.eco-foundation h3 {
+a.eco-foundation h3 {
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--color-text);
     letter-spacing: -0.01em;
 }
 
-.eco-foundation p {
+a.eco-foundation p {
     font-size: 0.8125rem;
     color: var(--color-text-muted);
     line-height: 1.6;
     max-width: 560px;
 }
 
-.eco-foundation .eco-card-badge {
+a.eco-foundation .eco-card-badge {
     display: inline-block;
 }
 
-.eco-foundation .eco-card-link {
+a.eco-foundation .eco-card-link {
     color: var(--color-amber);
     white-space: nowrap;
 }

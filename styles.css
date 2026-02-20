@@ -419,6 +419,10 @@ a.eco-card:hover {
     transform: translateY(-1px);
 }
 
+.eco-foundation * {
+    text-decoration: none;
+}
+
 .eco-foundation-left {
     display: flex;
     flex-direction: column;
@@ -437,6 +441,19 @@ a.eco-card:hover {
     color: var(--color-text-muted);
     line-height: 1.6;
     max-width: 560px;
+}
+
+.eco-foundation .eco-card-badge {
+    display: inline-block;
+}
+
+.eco-foundation .eco-card-link {
+    color: var(--color-amber);
+    white-space: nowrap;
+}
+
+[data-theme="light"] .eco-foundation {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .eco-implementations-label {

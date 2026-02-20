@@ -453,6 +453,10 @@ a.eco-foundation .eco-card-link {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+.eco-card--full {
+    margin-bottom: 24px;
+}
+
 .eco-implementations-label {
     font-size: 0.6875rem;
     font-weight: 600;

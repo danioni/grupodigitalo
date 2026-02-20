@@ -399,6 +399,55 @@ a.eco-card:hover {
     color: var(--color-amber);
 }
 
+/* Ecosystem foundation band */
+.eco-foundation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-amber);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 32px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.15s ease;
+}
+
+.eco-foundation:hover {
+    border-color: var(--color-amber);
+    transform: translateY(-1px);
+}
+
+.eco-foundation-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.eco-foundation h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+}
+
+.eco-foundation p {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    max-width: 560px;
+}
+
+.eco-implementations-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-subtle);
+    margin-bottom: 12px;
+}
+
 /* Standard Section */
 #estandar {
     background: var(--color-bg-elevated);
@@ -490,6 +539,51 @@ a.eco-card:hover {
 
 .standard-principles p:last-child {
     border-bottom: none;
+}
+
+/* Standard implications */
+.standard-implications {
+    margin-top: 48px;
+}
+
+.standard-implications h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+}
+
+.implications-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.implication-card {
+    padding: 20px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+}
+
+.implication-card strong {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    display: block;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.implication-card span {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+[data-theme="light"] .implication-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 /* Developer Section */
@@ -1108,6 +1202,16 @@ svg[viewBox] {
 
     .inteligencia-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .eco-foundation {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .implications-grid {
+        grid-template-columns: 1fr;
     }
 
     .footer-content {

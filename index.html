@@ -52,7 +52,7 @@
                 Grupo Digitalo
             </a>
             <div class="nav-right">
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
                     <li><a href="https://servicialo.com">Protocolo</a></li>
                     <li><a href="#productos">Productos</a></li>
                     <li><a href="#nosotros">Nosotros</a></li>
@@ -65,6 +65,11 @@
                     </svg>
                     <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                    </svg>
+                </button>
+                <button class="nav-hamburger" id="navHamburger" aria-label="Abrir men&uacute;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
                 </button>
             </div>
@@ -118,87 +123,286 @@
             </div>
 
             <div class="stack-intro">
-                <h3>Dos capas. Un mismo objetivo.</h3>
-                <p>Separamos la infraestructura p&uacute;blica &mdash; protocolos abiertos que cualquiera puede implementar &mdash; de la infraestructura privada &mdash; los productos que construimos sobre ellos. Las reglas son de todos. La ejecuci&oacute;n compite en el mercado.</p>
+                <h3>Dos dimensiones. Un mismo objetivo.</h3>
+                <p>El ecosistema separa la infraestructura &mdash; protocolos y productos que modelan, registran y procesan &mdash; de la inteligencia &mdash; agentes AI que leen el estado del sistema y act&uacute;an. Los fierros no opinan. Los operadores deciden.</p>
             </div>
 
-            <!-- Infraestructura Pública -->
-            <div class="arch-layer">
-                <div class="arch-layer-header">
-                    <span class="arch-layer-badge arch-layer-badge--public">Infraestructura p&uacute;blica</span>
-                    <span class="arch-layer-desc">Protocolos abiertos &middot; Cualquiera puede implementarlos</span>
+            <!-- ═══════════════════════════════════════ -->
+            <!-- DIMENSIÓN 1: INFRAESTRUCTURA           -->
+            <!-- ═══════════════════════════════════════ -->
+            <div class="arch-dimension">
+                <div class="arch-dimension-header">
+                    <span class="arch-dimension-number">1</span>
+                    <div>
+                        <h3>Infraestructura</h3>
+                        <span class="arch-dimension-sub">Los fierros &middot; Protocolos, reglas, datos</span>
+                    </div>
                 </div>
-                <div class="arch-layer-grid arch-layer-grid--3">
-                    <a href="https://servicialo.com" class="stack-col">
-                        <span class="stack-badge stack-badge--protocol">Protocolo abierto</span>
-                        <h4>Servicialo</h4>
-                        <span class="stack-label">PROTOCOLO DE SERVICIOS</span>
-                        <p>El lenguaje com&uacute;n para que cualquier agente AI entienda, agende y verifique servicios profesionales. 9 estados, 8 dimensiones. Cualquiera puede implementarlo.</p>
-                        <span class="eco-card-link">servicialo.com &rarr;</span>
-                    </a>
 
-                    <a href="https://compensalo.com" class="stack-col">
-                        <span class="stack-badge stack-badge--protocol">Protocolo abierto</span>
-                        <h4>Compensalo</h4>
-                        <span class="stack-label">PROTOCOLO DE LIQUIDACI&Oacute;N</span>
-                        <p>Define c&oacute;mo se reconcilian pagos contra movimientos bancarios. Reglas abiertas para que cualquier sistema financiero pueda liquidar servicios.</p>
-                        <span class="eco-card-link">compensalo.com &rarr;</span>
-                    </a>
+                <!-- Protocolos abiertos -->
+                <div class="arch-layer">
+                    <div class="arch-layer-header">
+                        <span class="arch-layer-badge arch-layer-badge--public">Protocolos abiertos</span>
+                        <span class="arch-layer-desc">El est&aacute;ndar no puede tener due&ntilde;o &middot; Cualquiera puede implementarlos</span>
+                    </div>
+                    <div class="arch-layer-grid arch-layer-grid--3">
+                        <a href="https://servicialo.com" class="stack-col">
+                            <span class="stack-badge stack-badge--protocol">Protocolo .com</span>
+                            <h4>Servicialo</h4>
+                            <span class="stack-label">COORDINACI&Oacute;N DE SERVICIOS</span>
+                            <p>El lenguaje com&uacute;n para que cualquier sistema entienda, agende y verifique servicios profesionales. 9 estados, 8 dimensiones.</p>
+                            <span class="eco-card-link">servicialo.com &rarr;</span>
+                        </a>
+                        <a href="https://compensalo.com" class="stack-col">
+                            <span class="stack-badge stack-badge--protocol">Protocolo .com</span>
+                            <h4>Compensalo</h4>
+                            <span class="stack-label">LIQUIDACI&Oacute;N FINANCIERA</span>
+                            <p>C&oacute;mo se reconcilian pagos contra movimientos bancarios. Reglas abiertas para liquidar servicios profesionales.</p>
+                            <span class="eco-card-link">compensalo.com &rarr;</span>
+                        </a>
+                        <a href="https://habilitalo.com" class="stack-col">
+                            <span class="stack-badge stack-badge--enable">Portabilidad .com</span>
+                            <h4>Habil&iacute;talo</h4>
+                            <span class="stack-label">PORTABILIDAD DE DATOS</span>
+                            <p>Historial financiero, operativo y comercial en formato soberano. Cambia de implementaci&oacute;n sin perder continuidad.</p>
+                            <span class="eco-card-link">habilitalo.com &rarr;</span>
+                        </a>
+                    </div>
+                </div>
 
-                    <a href="https://habilitalo.com" class="stack-col">
-                        <span class="stack-badge stack-badge--enable">Portabilidad abierta</span>
-                        <h4>Habil&iacute;talo</h4>
-                        <span class="stack-label">PORTABILIDAD DE DATOS</span>
-                        <p>Tu historial financiero, operativo y comercial en formato soberano. Cambia de implementaci&oacute;n sin perder continuidad. Tus datos, tus reglas.</p>
-                        <span class="eco-card-link">habilitalo.com &rarr;</span>
-                    </a>
+                <!-- Conector visual -->
+                <div class="arch-connector" aria-hidden="true">
+                    <div class="arch-connector-line"></div>
+                    <span class="arch-connector-label">Los protocolos definen las reglas &middot; Los productos las ejecutan</span>
+                    <div class="arch-connector-line"></div>
+                </div>
+
+                <!-- Productos propietarios -->
+                <div class="arch-layer">
+                    <div class="arch-layer-header">
+                        <span class="arch-layer-badge arch-layer-badge--private">Productos propietarios</span>
+                        <span class="arch-layer-desc">Implementaci&oacute;n de referencia de Digitalo &middot; 5 niveles progresivos</span>
+                    </div>
+
+                    <!-- Nivel 1 -->
+                    <div class="arch-level">
+                        <div class="arch-level-header">
+                            <span class="arch-level-number">1</span>
+                            <span class="arch-level-name">Registro</span>
+                            <span class="arch-level-desc">&mdash; capturar todo lo que pasa</span>
+                        </div>
+                        <div class="arch-layer-grid arch-layer-grid--2">
+                            <div class="stack-col stack-col--compact">
+                                <span class="stack-badge stack-badge--product">Producto</span>
+                                <h4>Coordinalo</h4>
+                                <p>Ciclo completo del servicio: solicitud, confirmaci&oacute;n, entrega, evidencia, cobro.</p>
+                            </div>
+                            <div class="stack-col stack-col--compact">
+                                <span class="stack-badge stack-badge--product">Producto</span>
+                                <h4>Planif&iacute;calo</h4>
+                                <p>ERP financiero. Liquidaciones, n&oacute;mina y cierre de mes para servicios profesionales.</p>
+                            </div>
+                            <div class="stack-col stack-col--compact">
+                                <span class="stack-badge stack-badge--product">Producto</span>
+                                <h4>Relaci&oacute;nalo</h4>
+                                <p>Historial de atenciones, preferencias y comunicaci&oacute;n. La memoria del negocio.</p>
+                            </div>
+                            <div class="stack-col stack-col--compact">
+                                <span class="stack-badge stack-badge--product">Producto</span>
+                                <h4>Acum&uacute;lalo</h4>
+                                <p>Agregaci&oacute;n y normalizaci&oacute;n de datos operativos, financieros y comerciales.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nivel 2 -->
+                    <div class="arch-level">
+                        <div class="arch-level-header">
+                            <span class="arch-level-number">2</span>
+                            <span class="arch-level-name">Optimizaci&oacute;n</span>
+                            <span class="arch-level-desc">&mdash; mejorar lo que ya se registra</span>
+                        </div>
+                        <div class="arch-layer-grid arch-layer-grid--2">
+                            <div class="stack-col stack-col--compact">
+                                <span class="stack-badge stack-badge--product">Producto</span>
+                                <h4>Optimizalo</h4>
+                                <p>Capacidad contra metas de ingreso. M&aacute;ximo rendimiento de cada recurso.</p>
+                            </div>
+                            <div class="stack-col stack-col--compact">
+                                <span class="stack-badge stack-badge--product">Producto</span>
+                                <h4>Pronosticalo</h4>
+                                <p>Forecasting de demanda y flujo de caja. Anticipa antes de que pase.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nivel 3 -->
+                    <div class="arch-level">
+                        <div class="arch-level-header">
+                            <span class="arch-level-number">3</span>
+                            <span class="arch-level-name">Inteligencia comercial</span>
+                            <span class="arch-level-desc">&mdash; actuar sobre los datos</span>
+                        </div>
+                        <div class="arch-layer-grid arch-layer-grid--3">
+                            <div class="stack-col stack-col--compact">
+                                <span class="stack-badge stack-badge--product">Producto</span>
+                                <h4>Personalizalo</h4>
+                                <p>Experiencia adaptada por cliente. Cada interacci&oacute;n refleja su historial.</p>
+                            </div>
+                            <div class="stack-col stack-col--compact">
+                                <span class="stack-badge stack-badge--product">Producto</span>
+                                <h4>Recomi&eacute;ndalo</h4>
+                                <p>Venta proactiva sin intervenci&oacute;n humana. El sistema sugiere el siguiente servicio.</p>
+                            </div>
+                            <div class="stack-col stack-col--compact">
+                                <span class="stack-badge stack-badge--product">Producto</span>
+                                <h4>Colateral&iacute;zalo</h4>
+                                <p>Historial operativo convertido en garant&iacute;as financieras. Datos como activo.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nivel 4 -->
+                    <div class="arch-level">
+                        <div class="arch-level-header">
+                            <span class="arch-level-number">4</span>
+                            <span class="arch-level-name">Observabilidad</span>
+                            <span class="arch-level-desc">&mdash; ver el sistema completo</span>
+                        </div>
+                        <div class="arch-layer-grid arch-layer-grid--2">
+                            <div class="stack-col stack-col--compact">
+                                <span class="stack-badge stack-badge--product">Producto</span>
+                                <h4>Observalo</h4>
+                                <p>M&eacute;tricas, alertas y estado de todos los niveles en tiempo real.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nivel 5 -->
+                    <div class="arch-level">
+                        <div class="arch-level-header">
+                            <span class="arch-level-number">5</span>
+                            <span class="arch-level-name">Equilibrio</span>
+                            <span class="arch-level-desc">&mdash; balancear el todo</span>
+                        </div>
+                        <div class="arch-layer-grid arch-layer-grid--2">
+                            <div class="stack-col stack-col--compact">
+                                <span class="stack-badge stack-badge--product">Producto</span>
+                                <h4>Balancealo</h4>
+                                <p>Orquestaci&oacute;n del ecosistema completo. Operaci&oacute;n, finanzas y crecimiento como un solo sistema.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arch-progression-note">
+                        &#8593; Cada nivel se alimenta de los datos del anterior &middot; No puedes saltarte niveles
+                    </div>
                 </div>
             </div>
 
-            <!-- Conector visual -->
-            <div class="arch-connector" aria-hidden="true">
+            <!-- Conector entre dimensiones -->
+            <div class="arch-connector arch-connector--dimension" aria-hidden="true">
                 <div class="arch-connector-line"></div>
-                <span class="arch-connector-label">Los protocolos definen las reglas &middot; Los productos las ejecutan</span>
+                <span class="arch-connector-label">Los fierros no opinan &middot; Los operadores deciden</span>
                 <div class="arch-connector-line"></div>
             </div>
 
-            <!-- Infraestructura Privada -->
-            <div class="arch-layer">
-                <div class="arch-layer-header">
-                    <span class="arch-layer-badge arch-layer-badge--private">Infraestructura privada</span>
-                    <span class="arch-layer-desc">Implementaci&oacute;n de referencia &middot; Productos de Digitalo</span>
+            <!-- ═══════════════════════════════════════ -->
+            <!-- DIMENSIÓN 2: INTELIGENCIA              -->
+            <!-- ═══════════════════════════════════════ -->
+            <div class="arch-dimension">
+                <div class="arch-dimension-header">
+                    <span class="arch-dimension-number">2</span>
+                    <div>
+                        <h3>Inteligencia</h3>
+                        <span class="arch-dimension-sub">Los operadores &middot; Agentes AI que corren sobre los fierros</span>
+                    </div>
                 </div>
-                <div class="arch-layer-grid arch-layer-grid--3">
-                    <a href="https://relacionalo.com" class="stack-col">
-                        <span class="stack-badge stack-badge--product">Producto</span>
-                        <h4>Relaci&oacute;nalo</h4>
-                        <span class="stack-label">CUENTAS</span>
-                        <p>Historial de atenciones, preferencias y comunicaci&oacute;n con clientes. La memoria del negocio centralizada.</p>
-                        <span class="eco-card-link">relacionalo.com &rarr;</span>
-                    </a>
 
-                    <a href="https://coordinalo.com" class="stack-col">
-                        <span class="stack-badge stack-badge--product">Producto</span>
-                        <h4>Coordinalo</h4>
-                        <span class="stack-label">OPERACI&Oacute;N</span>
-                        <p>El ciclo completo de un servicio: solicitud, confirmaci&oacute;n, entrega, evidencia, cobro. Sin que nadie coordine a mano.</p>
-                        <span class="eco-card-link">coordinalo.com &rarr;</span>
-                    </a>
+                <div class="arch-layer">
+                    <div class="arch-layer-header">
+                        <span class="arch-layer-badge arch-layer-badge--ai">Operadores .ai</span>
+                        <span class="arch-layer-desc">MCP servers en npm &middot; Invocables por cualquier agente AI externo</span>
+                    </div>
 
-                    <a href="https://planificalo.com" class="stack-col">
-                        <span class="stack-badge stack-badge--product">Producto</span>
-                        <h4>Planif&iacute;calo</h4>
-                        <span class="stack-label">FINANZAS</span>
-                        <p>ERP financiero. Liquidaciones, n&oacute;mina y cierre de mes para negocios de servicios profesionales.</p>
-                        <span class="eco-card-link">planificalo.com &rarr;</span>
-                    </a>
+                    <!-- Habilitador transversal -->
+                    <div class="arch-level">
+                        <div class="arch-level-header">
+                            <span class="arch-level-tag arch-level-tag--transversal">Transversal</span>
+                            <span class="arch-level-desc">Opera desde Nivel 1 &middot; Habilita a todos los dem&aacute;s</span>
+                        </div>
+                        <div class="arch-layer-grid arch-layer-grid--1">
+                            <div class="stack-col stack-col--compact stack-col--ai">
+                                <span class="stack-badge stack-badge--ai">Operador .ai</span>
+                                <h4>Categorizalo.ai</h4>
+                                <p>Clasifica y estructura datos desde el momento en que entran al sistema. Input de todos los operadores especializados.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Operadores especializados -->
+                    <div class="arch-level">
+                        <div class="arch-level-header">
+                            <span class="arch-level-tag arch-level-tag--specialized">Especializados</span>
+                            <span class="arch-level-desc">Cada uno opera sobre el nivel de infraestructura que le corresponde</span>
+                        </div>
+                        <div class="arch-layer-grid arch-layer-grid--2">
+                            <div class="stack-col stack-col--compact stack-col--ai">
+                                <span class="stack-badge stack-badge--ai">Operador .ai</span>
+                                <h4>Optimizalo.ai</h4>
+                                <span class="stack-label">NIVEL 2</span>
+                                <p>Optimizaci&oacute;n de capacidad contra metas de ingreso.</p>
+                            </div>
+                            <div class="stack-col stack-col--compact stack-col--ai">
+                                <span class="stack-badge stack-badge--ai">Operador .ai</span>
+                                <h4>Pronosticalo.ai</h4>
+                                <span class="stack-label">NIVEL 2</span>
+                                <p>Forecasting de demanda y flujo de caja.</p>
+                            </div>
+                            <div class="stack-col stack-col--compact stack-col--ai">
+                                <span class="stack-badge stack-badge--ai">Operador .ai</span>
+                                <h4>Personalizalo.ai</h4>
+                                <span class="stack-label">NIVEL 3</span>
+                                <p>Experiencia adaptada por cliente en tiempo real.</p>
+                            </div>
+                            <div class="stack-col stack-col--compact stack-col--ai">
+                                <span class="stack-badge stack-badge--ai">Operador .ai</span>
+                                <h4>Recomi&eacute;ndalo.ai</h4>
+                                <span class="stack-label">NIVEL 3</span>
+                                <p>Venta proactiva sin intervenci&oacute;n humana.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principios arquitectónicos -->
+            <div class="arch-principles">
+                <h3>Principios</h3>
+                <div class="arch-principles-grid">
+                    <div class="arch-principle">
+                        <span class="arch-principle-number">01</span>
+                        <p>Protocolos abiertos porque el est&aacute;ndar no puede tener due&ntilde;o.</p>
+                    </div>
+                    <div class="arch-principle">
+                        <span class="arch-principle-number">02</span>
+                        <p>Los datos acumulados en niveles inferiores son el input de los superiores.</p>
+                    </div>
+                    <div class="arch-principle">
+                        <span class="arch-principle-number">03</span>
+                        <p>No puedes saltarte niveles &mdash; cada uno habilita el siguiente.</p>
+                    </div>
+                    <div class="arch-principle">
+                        <span class="arch-principle-number">04</span>
+                        <p>El journey completo: negocio desordenado &rarr; patrimonio construido y medible.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Invitación a participar -->
             <div class="arch-invite">
-                <h3>Una nueva forma de entregar servicios</h3>
-                <p>Los protocolos son abiertos porque el est&aacute;ndar no puede tener due&ntilde;o. Si construyes software para negocios de servicios, puedes implementar Servicialo y Compensalo en tu propia plataforma. Si operas un negocio, puedes usar nuestros productos o los de cualquiera que implemente el protocolo. La infraestructura p&uacute;blica garantiza que nunca quedes atrapado.</p>
+                <h3>Infraestructura abierta. Inteligencia disponible.</h3>
+                <p>Los protocolos son abiertos &mdash; implementa Servicialo y Compensalo en tu propia plataforma. Los operadores .ai son MCP servers p&uacute;blicos &mdash; cualquier agente AI puede invocarlos. Si operas un negocio de servicios, usa nuestros productos. Si construyes software, construye sobre el protocolo.</p>
                 <div class="arch-invite-actions">
                     <a href="https://servicialo.com" class="btn btn--primary">
                         Implementar el protocolo
@@ -469,6 +673,26 @@
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+        });
+
+        // Mobile menu toggle
+        const navHamburger = document.getElementById('navHamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        navHamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-right') && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
         });
     </script>
 </body>

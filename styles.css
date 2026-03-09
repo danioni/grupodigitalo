@@ -149,6 +149,26 @@ body {
     display: block;
 }
 
+/* Hamburger button (mobile only) */
+.nav-hamburger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: all 0.15s ease;
+}
+
+.nav-hamburger:hover {
+    color: var(--color-text);
+    border-color: var(--color-border-light);
+}
+
 .nav-links {
     display: flex;
     gap: 4px;
@@ -557,6 +577,202 @@ a.stack-col:hover {
 .stack-badge--enable {
     background: rgba(20, 184, 166, 0.12);
     color: var(--color-teal);
+}
+
+.stack-badge--ai {
+    background: rgba(168, 85, 247, 0.12);
+    color: var(--color-purple);
+}
+
+/* Architecture Dimensions */
+.arch-dimension {
+    margin-bottom: 8px;
+}
+
+.arch-dimension-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.arch-dimension-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-accent-glow);
+    color: var(--color-accent-light);
+    font-size: 0.875rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.arch-dimension-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.arch-dimension-sub {
+    font-size: 0.8125rem;
+    color: var(--color-text-subtle);
+}
+
+/* Architecture Levels */
+.arch-level {
+    margin-bottom: 12px;
+}
+
+.arch-level:last-child {
+    margin-bottom: 0;
+}
+
+.arch-level-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.arch-level-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--color-green);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.arch-level-name {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.arch-level-desc {
+    font-size: 0.75rem;
+    color: var(--color-text-subtle);
+}
+
+.arch-level-tag {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.01em;
+}
+
+.arch-level-tag--transversal {
+    background: rgba(168, 85, 247, 0.12);
+    color: var(--color-purple);
+}
+
+.arch-level-tag--specialized {
+    background: rgba(168, 85, 247, 0.12);
+    color: var(--color-purple);
+}
+
+/* Grid variants */
+.arch-layer-grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.arch-layer-grid--1 {
+    grid-template-columns: 1fr;
+}
+
+/* Compact cards for levels */
+.stack-col--compact {
+    padding: 18px;
+}
+
+.stack-col--compact h4 {
+    font-size: 1rem;
+}
+
+.stack-col--compact p {
+    font-size: 0.8125rem;
+    margin-bottom: 0;
+}
+
+/* AI operator card styling */
+.stack-col--ai {
+    border-color: rgba(168, 85, 247, 0.15);
+}
+
+/* AI layer badge */
+.arch-layer-badge--ai {
+    background: rgba(168, 85, 247, 0.12);
+    color: var(--color-purple);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+/* Dimension connector */
+.arch-connector--dimension {
+    padding: 28px 0;
+}
+
+/* Progression note */
+.arch-progression-note {
+    margin-top: 16px;
+    font-size: 0.75rem;
+    color: var(--color-text-subtle);
+    text-align: center;
+    padding: 8px;
+}
+
+/* Architectural Principles */
+.arch-principles {
+    margin-top: 32px;
+    margin-bottom: 8px;
+}
+
+.arch-principles h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+
+.arch-principles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.arch-principle {
+    padding: 18px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.arch-principle-number {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-accent-light);
+    flex-shrink: 0;
+}
+
+.arch-principle p {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
 }
 
 .stack-links {
@@ -1021,6 +1237,28 @@ svg[viewBox] {
     background: rgba(20, 184, 166, 0.08);
 }
 
+[data-theme="light"] .stack-badge--ai {
+    background: rgba(168, 85, 247, 0.08);
+}
+
+[data-theme="light"] .arch-layer-badge--ai {
+    background: rgba(168, 85, 247, 0.08);
+    border-color: rgba(168, 85, 247, 0.15);
+}
+
+[data-theme="light"] .arch-level-tag--transversal,
+[data-theme="light"] .arch-level-tag--specialized {
+    background: rgba(168, 85, 247, 0.08);
+}
+
+[data-theme="light"] .arch-principle {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .stack-col--ai {
+    border-color: rgba(168, 85, 247, 0.12);
+}
+
 /* Footer */
 .footer {
     padding: 24px 0;
@@ -1076,12 +1314,34 @@ svg[viewBox] {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
+    .nav-hamburger {
+        display: flex;
     }
 
-    .nav-container {
-        justify-content: center;
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
+        flex-direction: column;
+        padding: 12px 24px 16px;
+        gap: 2px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 10px 12px;
+        font-size: 0.875rem;
+    }
+
+    .nav-right {
+        gap: 8px;
     }
 
     .hero {
@@ -1134,6 +1394,26 @@ svg[viewBox] {
         white-space: normal;
         text-align: center;
         font-size: 0.6875rem;
+    }
+
+    .arch-layer-grid--2 {
+        grid-template-columns: 1fr;
+    }
+
+    .arch-layer-grid--1 {
+        grid-template-columns: 1fr;
+    }
+
+    .arch-principles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .arch-level-header {
+        flex-wrap: wrap;
+    }
+
+    .arch-dimension-header h3 {
+        font-size: 1.125rem;
     }
 
     .arch-invite {

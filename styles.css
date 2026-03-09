@@ -16,6 +16,7 @@
     --color-amber: #f59e0b;
     --color-purple: #a855f7;
     --color-green: #10b981;
+    --color-teal: #14b8a6;
 }
 
 /* Dark theme (default) */
@@ -363,7 +364,7 @@ body {
 
 .stack-grid {
     display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
     gap: 0;
     align-items: stretch;
 }
@@ -435,6 +436,11 @@ a.stack-col:hover {
     color: var(--color-amber);
 }
 
+.stack-badge--enable {
+    background: rgba(20, 184, 166, 0.12);
+    color: var(--color-teal);
+}
+
 .stack-links {
     display: flex;
     flex-direction: column;
@@ -491,6 +497,14 @@ a.stack-col:hover {
 
 .ecosystem-grid--2x2 {
     grid-template-columns: repeat(2, 1fr);
+}
+
+.ecosystem-grid--5 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.ecosystem-grid--5 > :first-child {
+    grid-column: 1 / -1;
 }
 
 .eco-card {
@@ -555,6 +569,12 @@ a.eco-card:hover {
     color: var(--color-amber);
 }
 
+.eco-card-icon--teal {
+    background: rgba(20, 184, 166, 0.12);
+    border: 1px solid rgba(20, 184, 166, 0.2);
+    color: var(--color-teal);
+}
+
 .eco-card-badge {
     font-size: 0.6875rem;
     font-weight: 500;
@@ -580,6 +600,11 @@ a.eco-card:hover {
 .eco-card-badge--amber {
     background: rgba(245, 158, 11, 0.12);
     color: var(--color-amber);
+}
+
+.eco-card-badge--teal {
+    background: rgba(20, 184, 166, 0.12);
+    color: var(--color-teal);
 }
 
 .eco-card h3 {
@@ -714,7 +739,7 @@ svg[viewBox] {
 /* CTA Blocks */
 .cta-blocks {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
 
@@ -837,6 +862,15 @@ svg[viewBox] {
     background: rgba(245, 158, 11, 0.08);
 }
 
+[data-theme="light"] .eco-card-icon--teal {
+    background: rgba(20, 184, 166, 0.08);
+    border-color: rgba(20, 184, 166, 0.15);
+}
+
+[data-theme="light"] .eco-card-badge--teal {
+    background: rgba(20, 184, 166, 0.08);
+}
+
 [data-theme="light"] .stack-badge--protocol {
     background: rgba(59, 130, 246, 0.08);
 }
@@ -847,6 +881,10 @@ svg[viewBox] {
 
 [data-theme="light"] .stack-badge--dev {
     background: rgba(245, 158, 11, 0.08);
+}
+
+[data-theme="light"] .stack-badge--enable {
+    background: rgba(20, 184, 166, 0.08);
 }
 
 /* Footer */
@@ -955,7 +993,8 @@ svg[viewBox] {
     }
 
     .ecosystem-grid,
-    .ecosystem-grid--2x2 {
+    .ecosystem-grid--2x2,
+    .ecosystem-grid--5 {
         grid-template-columns: 1fr;
     }
 

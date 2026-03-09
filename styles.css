@@ -17,6 +17,7 @@
     --color-purple: #a855f7;
     --color-green: #10b981;
     --color-teal: #14b8a6;
+    --color-rose: #f43f5e;
 }
 
 /* Dark theme (default) */
@@ -364,7 +365,7 @@ body {
 
 .stack-grid {
     display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
     gap: 0;
     align-items: stretch;
 }
@@ -499,12 +500,8 @@ a.stack-col:hover {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.ecosystem-grid--5 {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.ecosystem-grid--5 > :first-child {
-    grid-column: 1 / -1;
+.ecosystem-grid--6 {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .eco-card {
@@ -575,6 +572,12 @@ a.eco-card:hover {
     color: var(--color-teal);
 }
 
+.eco-card-icon--rose {
+    background: rgba(244, 63, 94, 0.12);
+    border: 1px solid rgba(244, 63, 94, 0.2);
+    color: var(--color-rose);
+}
+
 .eco-card-badge {
     font-size: 0.6875rem;
     font-weight: 500;
@@ -605,6 +608,11 @@ a.eco-card:hover {
 .eco-card-badge--teal {
     background: rgba(20, 184, 166, 0.12);
     color: var(--color-teal);
+}
+
+.eco-card-badge--rose {
+    background: rgba(244, 63, 94, 0.12);
+    color: var(--color-rose);
 }
 
 .eco-card h3 {
@@ -871,6 +879,15 @@ svg[viewBox] {
     background: rgba(20, 184, 166, 0.08);
 }
 
+[data-theme="light"] .eco-card-icon--rose {
+    background: rgba(244, 63, 94, 0.08);
+    border-color: rgba(244, 63, 94, 0.15);
+}
+
+[data-theme="light"] .eco-card-badge--rose {
+    background: rgba(244, 63, 94, 0.08);
+}
+
 [data-theme="light"] .stack-badge--protocol {
     background: rgba(59, 130, 246, 0.08);
 }
@@ -994,7 +1011,7 @@ svg[viewBox] {
 
     .ecosystem-grid,
     .ecosystem-grid--2x2,
-    .ecosystem-grid--5 {
+    .ecosystem-grid--6 {
         grid-template-columns: 1fr;
     }
 

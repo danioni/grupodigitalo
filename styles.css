@@ -48,6 +48,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -58,6 +59,7 @@ body {
     font-size: 15px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 /* Container */
@@ -485,8 +487,8 @@ a.hero-proof-badge:hover {
 .arch-connector-label {
     font-size: 0.75rem;
     color: var(--color-text-subtle);
-    white-space: nowrap;
     font-weight: 500;
+    text-align: center;
 }
 
 /* Architecture Invite */
@@ -700,36 +702,91 @@ a.stack-col:hover {
     color: var(--color-text-subtle);
 }
 
-/* Architecture Levels */
-.arch-level {
-    margin-bottom: 12px;
-}
-
-.arch-level:last-child {
-    margin-bottom: 0;
-}
-
-.arch-level-header {
+/* Architecture Stack (5 Levels) */
+.arch-stack {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
+    flex-direction: column;
+    gap: 0;
 }
 
-.arch-level-number {
+.arch-stack-level {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--border);
+    border-bottom: none;
+    background: var(--bg-card);
+    transition: background 0.2s;
+}
+
+.arch-stack-level:first-child {
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.arch-stack-level:last-of-type {
+    border-bottom: 1px solid var(--border);
+}
+
+.arch-stack-number {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: rgba(16, 185, 129, 0.12);
-    color: var(--color-green);
-    font-size: 0.6875rem;
+    min-width: 48px;
+    font-size: 1.125rem;
     font-weight: 700;
+    color: var(--color-text-subtle);
+    border-right: 1px solid var(--border);
     flex-shrink: 0;
 }
 
+.arch-stack-content {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+    flex: 1;
+    line-height: 1.6;
+    font-size: 0.9375rem;
+}
+
+.arch-stack-content strong {
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.arch-stack-content span:last-child {
+    color: var(--color-text-subtle);
+}
+
+.arch-stack-dash {
+    color: var(--color-text-subtle);
+    flex-shrink: 0;
+}
+
+.arch-stack-level--5 .arch-stack-number { color: var(--color-purple); }
+.arch-stack-level--4 .arch-stack-number { color: var(--color-amber); }
+.arch-stack-level--3 .arch-stack-number { color: var(--color-blue); }
+.arch-stack-level--2 .arch-stack-number { color: var(--color-green); }
+.arch-stack-level--1 .arch-stack-number { color: var(--accent); }
+
+.arch-stack-level--5 { border-left: 3px solid var(--color-purple); }
+.arch-stack-level--4 { border-left: 3px solid var(--color-amber); }
+.arch-stack-level--3 { border-left: 3px solid var(--color-blue); }
+.arch-stack-level--2 { border-left: 3px solid var(--color-green); }
+.arch-stack-level--1 { border-left: 3px solid var(--accent); }
+
+.arch-stack-base {
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-subtle);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+    background: var(--bg-card);
+    font-style: italic;
+}
+
+/* Legacy level classes kept for compatibility */
 .arch-level-name {
     font-size: 0.8125rem;
     font-weight: 600;
@@ -1101,6 +1158,10 @@ svg[viewBox] {
     gap: 12px;
 }
 
+.tesis-grid--2col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .tesis-card {
     padding: 20px;
     background: var(--color-bg-card);
@@ -1449,10 +1510,6 @@ svg[viewBox] {
         gap: 32px;
     }
 
-    .hero-text h1 {
-        font-size: 1.875rem;
-    }
-
     .hero-meta {
         flex-direction: row;
         flex-wrap: wrap;
@@ -1492,6 +1549,70 @@ svg[viewBox] {
         font-size: 0.6875rem;
     }
 
+    .hero-proof {
+        flex-direction: column;
+    }
+
+    .hero-proof-badge {
+        font-size: 0.6875rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-text h1 {
+        font-size: 1.625rem;
+    }
+
+    .hero-text p {
+        font-size: 0.9375rem;
+    }
+
+    .eco-card-header {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .eco-card-header .stack-status {
+        margin-left: 0;
+    }
+
+    .eco-card {
+        padding: 18px;
+    }
+
+    .eco-card h3 {
+        font-size: 1rem;
+    }
+
+    .cta-block {
+        padding: 24px;
+    }
+
+    .cta-block h3 {
+        font-size: 1.125rem;
+    }
+
+    .cta-block-actions {
+        flex-direction: column;
+    }
+
+    .cta-block-actions .btn {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .tesis-grid,
+    .tesis-grid--2col {
+        grid-template-columns: 1fr;
+    }
+
+    .about-intro h3,
+    .products-intro h3,
+    .tesis-intro h3,
+    .stack-intro h3 {
+        font-size: 1.25rem;
+    }
+
     .arch-layer-grid--2 {
         grid-template-columns: 1fr;
     }
@@ -1504,8 +1625,20 @@ svg[viewBox] {
         grid-template-columns: 1fr;
     }
 
-    .arch-level-header {
-        flex-wrap: wrap;
+    .arch-stack-content {
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .arch-stack-number {
+        min-width: 40px;
+        font-size: 1rem;
+    }
+
+    .arch-stack-dash {
+        display: none;
     }
 
     .arch-dimension-header h3 {

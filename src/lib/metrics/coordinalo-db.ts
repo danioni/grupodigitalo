@@ -41,10 +41,21 @@ export interface MamaProMetrics {
   available: boolean
 }
 
-// pg se carga dinámicamente solo cuando DATABASE_URL_COORDINALO está configurado
-// TODO: habilitar cuando se conecte la DB de Coordinalo
 async function getPool(): Promise<any> {
-  return null
+  const dbUrl = process.env.DATABASE_URL_COORDINALO
+  if (!dbUrl) return null
+
+  try {
+    const { Pool } = await import('pg')
+    return new Pool({
+      connectionString: dbUrl,
+      ssl: { rejectUnauthorized: false },
+      max: 3,
+      idleTimeoutMillis: 10000,
+    })
+  } catch {
+    return null
+  }
 }
 
 export async function fetchMcpUsageMetrics(): Promise<McpUsageMetrics> {

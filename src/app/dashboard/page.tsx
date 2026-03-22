@@ -26,9 +26,11 @@ export default async function DashboardPage() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'baseline',
-        marginBottom: '1.5rem',
+        marginBottom: '1rem',
+        flexWrap: 'wrap',
+        gap: '0.5rem',
       }}>
-        <h1 style={{ fontSize: '1.5rem', fontWeight: 700, margin: 0 }}>
+        <h1 style={{ fontSize: '1.25rem', fontWeight: 700, margin: 0 }}>
           Performance del Ecosistema
         </h1>
         <span style={{ color: '#71717a', fontSize: '0.75rem' }}>
@@ -41,7 +43,7 @@ export default async function DashboardPage() {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))',
         gap: '1rem',
       }}>
         <NpmPanel data={npm} />
@@ -58,7 +60,7 @@ export default async function DashboardPage() {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))',
         gap: '1rem',
         marginTop: '1rem',
       }}>

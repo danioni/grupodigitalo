@@ -4,7 +4,8 @@ export const card: CSSProperties = {
   background: '#18181b',
   border: '1px solid #27272a',
   borderRadius: '0.75rem',
-  padding: '1.25rem',
+  padding: '1rem',
+  overflow: 'hidden',
 }
 
 export const cardTitle: CSSProperties = {
@@ -30,7 +31,7 @@ export const statLabel: CSSProperties = {
 
 export const statGroup: CSSProperties = {
   display: 'flex',
-  gap: '2rem',
+  gap: '1.5rem',
   flexWrap: 'wrap' as const,
 }
 

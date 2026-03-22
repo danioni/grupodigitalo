@@ -32,7 +32,7 @@ export default function DashboardLayout({
           ← Volver al sitio
         </a>
       </header>
-      <main style={{ padding: '1.5rem', maxWidth: '1400px', margin: '0 auto' }}>
+      <main style={{ padding: '1rem 1rem', maxWidth: '1400px', margin: '0 auto' }}>
         {children}
       </main>
     </div>

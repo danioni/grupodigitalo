@@ -17,12 +17,12 @@ export function EcosystemHealthPanel({ uptime, mamaPro, packageInfo }: Props) {
       <div style={{ ...s.sectionTitle, fontSize: '0.8125rem', marginTop: 0 }}>Estado de servicios</div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         {uptime.checks.map(check => (
-          <div key={check.url} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div key={check.url} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', minWidth: 0 }}>
               <span style={s.badge(check.ok)}>{check.ok ? 'UP' : 'DOWN'}</span>
-              <span style={{ ...s.mono, fontSize: '0.8125rem' }}>{check.url.replace('https://', '')}</span>
+              <span style={{ ...s.mono, fontSize: '0.75rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{check.url.replace('https://', '')}</span>
             </div>
-            <span style={{ color: '#71717a', fontSize: '0.75rem' }}>
+            <span style={{ color: '#71717a', fontSize: '0.7rem', whiteSpace: 'nowrap' }}>
               {check.status ?? '—'} · {check.latencyMs}ms
             </span>
           </div>

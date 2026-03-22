@@ -41,13 +41,14 @@ export interface MamaProMetrics {
   available: boolean
 }
 
-// Dynamic import to avoid build errors when pg is not available
+// Use require() hidden from the bundler to avoid pg being included in Edge Runtime
 async function getPool() {
   const dbUrl = process.env.DATABASE_URL_COORDINALO
   if (!dbUrl) return null
 
   try {
-    const { default: pg } = await import('pg')
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const pg = require(/* webpackIgnore: true */ 'pg')
     return new pg.Pool({
       connectionString: dbUrl,
       ssl: { rejectUnauthorized: false },
@@ -109,7 +110,7 @@ export async function fetchMcpUsageMetrics(): Promise<McpUsageMetrics> {
       totalRequests7d: r7d.rows[0]?.count ?? 0,
       totalRequests30d: r30d.rows[0]?.count ?? 0,
       toolBreakdown: tools.rows,
-      activeOrgs: orgs.rows.map(r => ({
+      activeOrgs: orgs.rows.map((r: any) => ({
         orgSlug: r.orgSlug,
         lastActivity: r.lastActivity?.toISOString?.() ?? r.lastActivity,
         requestCount: r.requestCount,
@@ -118,7 +119,7 @@ export async function fetchMcpUsageMetrics(): Promise<McpUsageMetrics> {
       errorRate7d: Math.round((err7d.rows[0]?.rate ?? 0) * 100),
       latencyP50: latency.rows[0]?.p50 ?? null,
       latencyP95: latency.rows[0]?.p95 ?? null,
-      recentRequests: recent.rows.map(r => ({
+      recentRequests: recent.rows.map((r: any) => ({
         id: r.id,
         orgSlug: r.orgSlug,
         tool: r.tool,

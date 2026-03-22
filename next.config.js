@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  serverExternalPackages: ['pg'],
   async rewrites() {
     return [
       { source: '/privacidad', destination: '/privacidad.html' },

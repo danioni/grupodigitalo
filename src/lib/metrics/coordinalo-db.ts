@@ -41,23 +41,10 @@ export interface MamaProMetrics {
   available: boolean
 }
 
-// Use require() hidden from the bundler to avoid pg being included in Edge Runtime
-async function getPool() {
-  const dbUrl = process.env.DATABASE_URL_COORDINALO
-  if (!dbUrl) return null
-
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const pg = require(/* webpackIgnore: true */ 'pg')
-    return new pg.Pool({
-      connectionString: dbUrl,
-      ssl: { rejectUnauthorized: false },
-      max: 3,
-      idleTimeoutMillis: 10000,
-    })
-  } catch {
-    return null
-  }
+// pg se carga dinámicamente solo cuando DATABASE_URL_COORDINALO está configurado
+// TODO: habilitar cuando se conecte la DB de Coordinalo
+async function getPool(): Promise<any> {
+  return null
 }
 
 export async function fetchMcpUsageMetrics(): Promise<McpUsageMetrics> {

@@ -14,6 +14,8 @@ const ENDPOINTS = [
   'https://coordinalo.com/api/mcp',
   'https://coordinalo.com',
   'https://grupodigitalo.com',
+  'https://servicialo.com',
+  'https://servicialo.com/api/registry/search?country=cl',
 ]
 
 async function pingEndpoint(url: string): Promise<UptimeCheck> {

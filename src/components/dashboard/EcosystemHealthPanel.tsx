@@ -1,15 +1,17 @@
 import type { UptimeMetrics } from '@/lib/metrics/uptime'
 import type { MamaProMetrics } from '@/lib/metrics/coordinalo-db'
 import type { NpmPackageInfo } from '@/lib/metrics/npm'
+import type { RegistryMetrics } from '@/lib/metrics/registry'
 import * as s from './styles'
 
 interface Props {
   uptime: UptimeMetrics
   mamaPro: MamaProMetrics
   packageInfo: NpmPackageInfo
+  registry: RegistryMetrics
 }
 
-export function EcosystemHealthPanel({ uptime, mamaPro, packageInfo }: Props) {
+export function EcosystemHealthPanel({ uptime, mamaPro, packageInfo, registry }: Props) {
   return (
     <div style={s.card}>
       <div style={s.cardTitle}>Ecosystem Health</div>
@@ -33,6 +35,25 @@ export function EcosystemHealthPanel({ uptime, mamaPro, packageInfo }: Props) {
       <div style={{ fontSize: '0.875rem' }}>
         Versión npm: <strong>v{packageInfo.version}</strong>
       </div>
+      <div style={{ marginTop: '0.5rem', fontSize: '0.8125rem', color: '#a1a1aa' }}>
+        Registry propio:{' '}
+        <span style={s.badge(registry.available)}>{registry.available ? 'UP' : 'DOWN'}</span>
+      </div>
+      {registry.available && (
+        <div style={{ marginTop: '0.375rem', fontSize: '0.8125rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' as const }}>
+          <span style={{ color: '#71717a' }}>
+            Endpoint: <span style={s.mono}>servicialo.com/api/registry</span>
+          </span>
+          <span style={{ color: '#71717a' }}>
+            Orgs: <strong style={{ color: '#fafafa' }}>{registry.totalEntries}</strong>
+          </span>
+          {registry.implementers.length > 0 && (
+            <span style={{ color: '#71717a' }}>
+              Implementers: {registry.implementers.join(', ')}
+            </span>
+          )}
+        </div>
+      )}
 
       {mamaPro.available && (
         <>

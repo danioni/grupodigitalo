@@ -1,6 +1,6 @@
 import { fetchNpmMetrics } from '@/lib/metrics/npm'
 import { fetchGitHubMetrics } from '@/lib/metrics/github'
-import { fetchMcpUsageMetrics, fetchMamaProMetrics } from '@/lib/metrics/coordinalo-db'
+import { fetchMcpUsageMetrics, fetchMamaProMetrics, fetchTelemetryMetrics } from '@/lib/metrics/coordinalo-db'
 import { fetchUptimeMetrics } from '@/lib/metrics/uptime'
 import { fetchRegistryMetrics } from '@/lib/metrics/registry'
 import { NpmPanel } from '@/components/dashboard/NpmPanel'
@@ -9,18 +9,20 @@ import { McpUsagePanel } from '@/components/dashboard/McpUsagePanel'
 import { EcosystemHealthPanel } from '@/components/dashboard/EcosystemHealthPanel'
 import { RecentActivityPanel } from '@/components/dashboard/RecentActivityPanel'
 import { RegistryPanel } from '@/components/dashboard/RegistryPanel'
+import { TelemetryPanel } from '@/components/dashboard/TelemetryPanel'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 export default async function DashboardPage() {
-  const [npm, github, mcpUsage, mamaPro, uptime, registry] = await Promise.all([
+  const [npm, github, mcpUsage, mamaPro, uptime, registry, telemetry] = await Promise.all([
     fetchNpmMetrics(),
     fetchGitHubMetrics(),
     fetchMcpUsageMetrics(),
     fetchMamaProMetrics(),
     fetchUptimeMetrics(),
     fetchRegistryMetrics(),
+    fetchTelemetryMetrics(),
   ])
 
   return (
@@ -56,6 +58,15 @@ export default async function DashboardPage() {
           packageInfo={npm.packageInfo}
           registry={registry}
         />
+      </div>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))',
+        gap: '1rem',
+        marginTop: '1rem',
+      }}>
+        <TelemetryPanel data={telemetry} />
       </div>
 
       <div style={{

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { fetchNpmMetrics } from '@/lib/metrics/npm'
 import { fetchGitHubMetrics } from '@/lib/metrics/github'
-import { fetchMcpUsageMetrics, fetchMamaProMetrics } from '@/lib/metrics/coordinalo-db'
+import { fetchMcpUsageMetrics, fetchMamaProMetrics, fetchTelemetryMetrics } from '@/lib/metrics/coordinalo-db'
 import { fetchUptimeMetrics } from '@/lib/metrics/uptime'
 import { fetchRegistryMetrics } from '@/lib/metrics/registry'
 
@@ -21,13 +21,14 @@ export async function GET(request: NextRequest) {
 
   const startTime = Date.now()
 
-  const [npm, github, mcpUsage, mamaPro, uptime, registry] = await Promise.all([
+  const [npm, github, mcpUsage, mamaPro, uptime, registry, telemetry] = await Promise.all([
     fetchNpmMetrics().catch(e => ({ error: String(e) })),
     fetchGitHubMetrics().catch(e => ({ repos: [], error: String(e) })),
     fetchMcpUsageMetrics().catch(e => ({ available: false, error: String(e) })),
     fetchMamaProMetrics().catch(e => ({ available: false, error: String(e) })),
     fetchUptimeMetrics().catch(e => ({ checks: [], error: String(e) })),
     fetchRegistryMetrics().catch(e => ({ available: false, error: String(e) })),
+    fetchTelemetryMetrics().catch(e => ({ available: false, error: String(e) })),
   ])
 
   const result = {
@@ -37,6 +38,7 @@ export async function GET(request: NextRequest) {
     mamaPro,
     uptime,
     registry,
+    telemetry,
     refreshedAt: new Date().toISOString(),
     durationMs: Date.now() - startTime,
   }

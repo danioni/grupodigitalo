@@ -20,21 +20,20 @@ const css = `
     --sans: 'DM Sans', system-ui, sans-serif;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --ink: #e8e6e1;
-      --ink-muted: #9a9590;
-      --ink-faint: #6b6860;
-      --surface: #121210;
-      --surface-hover: #1c1b18;
-      --surface-anchor: rgba(255,255,255,0.04);
-      --nav-bg: rgba(18,18,16,0.92);
-      --border: rgba(255,255,255,0.10);
-      --border-strong: rgba(255,255,255,0.20);
-    }
+  [data-theme="dark"] {
+    --ink: #e8e6e1;
+    --ink-muted: #9a9590;
+    --ink-faint: #6b6860;
+    --surface: #121210;
+    --surface-hover: #1c1b18;
+    --surface-anchor: rgba(255,255,255,0.04);
+    --nav-bg: rgba(18,18,16,0.92);
+    --border: rgba(255,255,255,0.10);
+    --border-strong: rgba(255,255,255,0.20);
   }
 
   html { font-size: 17px; -webkit-font-smoothing: antialiased; }
+  body { background: var(--surface); }
 
   .m-progress {
     position: fixed;

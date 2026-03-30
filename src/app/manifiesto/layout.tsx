@@ -15,15 +15,5 @@ export default function ManifiestoLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <>
-      <style>{`
-        body { background: #faf9f7 !important; }
-        @media (prefers-color-scheme: dark) {
-          body { background: #121210 !important; }
-        }
-      `}</style>
-      {children}
-    </>
-  )
+  return <>{children}</>
 }

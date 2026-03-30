@@ -50,23 +50,59 @@ const css = `
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 2rem;
     background: var(--nav-bg);
     backdrop-filter: blur(8px);
     border-bottom: 0.5px solid var(--border);
   }
 
+  .m-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+
   .m-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
     color: var(--ink);
     text-decoration: none;
   }
+
+  .m-nav-logo svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .m-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .m-nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  }
+
+  .m-nav-links a {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .m-nav-links a:hover { color: var(--ink); }
 
   .m-nav-back {
     font-size: 12px;
@@ -78,6 +114,10 @@ const css = `
   }
 
   .m-nav-back:hover { color: var(--ink); }
+
+  @media (max-width: 768px) {
+    .m-nav-links { display: none; }
+  }
 
   .m-main {
     max-width: var(--max);
@@ -378,10 +418,34 @@ export default function ManifiestoPage() {
       <div className="m-progress" id="m-progress" />
 
       <nav className="m-nav">
-        <a href="/" className="m-nav-logo">Grupo Digitalo</a>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-          <a href="/dashboard" className="m-nav-back">Dashboard</a>
-          <a href="/" className="m-nav-back">&larr; Volver</a>
+        <div className="m-nav-container">
+          <a href="/" className="m-nav-logo">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L4 6v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V6l-8-4z" fill="url(#m-logo-gradient)" opacity="0.15"/>
+              <path d="M12 5.5L7 8v4c0 3.5 2.5 6.5 5 7.5 2.5-1 5-4 5-7.5V8l-5-2.5z" stroke="url(#m-logo-gradient)" strokeWidth="1.5" fill="none"/>
+              <circle cx="12" cy="10" r="1.5" fill="url(#m-logo-gradient)"/>
+              <circle cx="9" cy="14" r="1.5" fill="url(#m-logo-gradient)"/>
+              <circle cx="15" cy="14" r="1.5" fill="url(#m-logo-gradient)"/>
+              <path d="M12 10L9 14M12 10L15 14M9 14H15" stroke="url(#m-logo-gradient)" strokeWidth="1.2"/>
+              <defs>
+                <linearGradient id="m-logo-gradient" x1="4" y1="2" x2="20" y2="20" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#60a5fa"/>
+                  <stop offset="1" stopColor="#3b82f6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            Grupo Digitalo
+          </a>
+          <div className="m-nav-right">
+            <ul className="m-nav-links">
+              <li><a href="https://servicialo.com">Protocolo</a></li>
+              <li><a href="/#productos">Productos</a></li>
+              <li><a href="/#nosotros">Nosotros</a></li>
+              <li><a href="https://documentalo.com">Documentaci&oacute;n</a></li>
+              <li><a href="/#contacto">Contacto</a></li>
+            </ul>
+            <a href="/" className="m-nav-back">&larr; Volver</a>
+          </div>
         </div>
       </nav>
 

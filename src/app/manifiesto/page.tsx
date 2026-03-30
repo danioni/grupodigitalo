@@ -18,6 +18,14 @@ const css = `
     --max: 680px;
     --serif: 'Playfair Display', Georgia, serif;
     --sans: 'DM Sans', system-ui, sans-serif;
+    --radius-sm: 8px;
+    --color-bg: #faf9f7;
+    --color-bg-elevated: #f3f2ef;
+    --color-text: #1a1916;
+    --color-text-muted: #6b6860;
+    --color-text-subtle: #a09e9a;
+    --color-border: rgba(26,25,22,0.12);
+    --color-border-light: rgba(26,25,22,0.25);
   }
 
   [data-theme="dark"] {
@@ -30,6 +38,13 @@ const css = `
     --nav-bg: rgba(18,18,16,0.92);
     --border: rgba(255,255,255,0.10);
     --border-strong: rgba(255,255,255,0.20);
+    --color-bg: #121210;
+    --color-bg-elevated: #1c1b18;
+    --color-text: #e8e6e1;
+    --color-text-muted: #9a9590;
+    --color-text-subtle: #6b6860;
+    --color-border: rgba(255,255,255,0.10);
+    --color-border-light: rgba(255,255,255,0.20);
   }
 
   html { font-size: 17px; -webkit-font-smoothing: antialiased; }
@@ -43,79 +58,6 @@ const css = `
     width: 0%;
     z-index: 200;
     transition: width 0.1s linear;
-  }
-
-  .m-nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: var(--nav-bg);
-    backdrop-filter: blur(8px);
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .m-nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-  }
-
-  .m-nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.03em;
-    color: var(--ink);
-    text-decoration: none;
-  }
-
-  .m-nav-logo svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  .m-nav-right {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .m-nav-links {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-  }
-
-  .m-nav-links a {
-    font-family: var(--sans);
-    font-size: 13px;
-    color: var(--ink-muted);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-
-  .m-nav-links a:hover { color: var(--ink); }
-
-  .m-nav-back {
-    font-size: 12px;
-    color: var(--ink-muted);
-    text-decoration: none;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
-  .m-nav-back:hover { color: var(--ink); }
-
-  @media (max-width: 768px) {
-    .m-nav-links { display: none; }
   }
 
   .m-main {
@@ -422,6 +364,7 @@ const clevel = [
 
 export default function ManifiestoPage() {
   useEffect(() => {
+    // Scroll progress
     const handler = () => {
       const h = document.documentElement
       const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100
@@ -429,7 +372,40 @@ export default function ManifiestoPage() {
       if (bar) bar.style.width = Math.min(pct, 100) + '%'
     }
     window.addEventListener('scroll', handler, { passive: true })
-    return () => window.removeEventListener('scroll', handler)
+
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle')
+    const onToggle = () => {
+      const cur = document.documentElement.getAttribute('data-theme')
+      const next = cur === 'dark' ? 'light' : 'dark'
+      document.documentElement.setAttribute('data-theme', next)
+      localStorage.setItem('theme', next)
+    }
+    toggle?.addEventListener('click', onToggle)
+
+    // Mobile hamburger
+    const hamburger = document.getElementById('navHamburger')
+    const navLinks = document.getElementById('navLinks')
+    const onHamburger = () => navLinks?.classList.toggle('active')
+    hamburger?.addEventListener('click', onHamburger)
+
+    const onDocClick = (e: MouseEvent) => {
+      if (!(e.target as Element).closest('.nav-right') && navLinks?.classList.contains('active')) {
+        navLinks.classList.remove('active')
+      }
+    }
+    document.addEventListener('click', onDocClick)
+
+    navLinks?.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => navLinks.classList.remove('active'))
+    )
+
+    return () => {
+      window.removeEventListener('scroll', handler)
+      toggle?.removeEventListener('click', onToggle)
+      hamburger?.removeEventListener('click', onHamburger)
+      document.removeEventListener('click', onDocClick)
+    }
   }, [])
 
   return (
@@ -437,25 +413,26 @@ export default function ManifiestoPage() {
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap"
         rel="stylesheet"
       />
+      <link rel="stylesheet" href="/styles.css" />
       <style dangerouslySetInnerHTML={{ __html: css }} />
 
       <div className="m-progress" id="m-progress" />
 
-      <nav className="m-nav">
-        <div className="m-nav-container">
-          <a href="/" className="m-nav-logo">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L4 6v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V6l-8-4z" fill="url(#m-logo-gradient)" opacity="0.15"/>
-              <path d="M12 5.5L7 8v4c0 3.5 2.5 6.5 5 7.5 2.5-1 5-4 5-7.5V8l-5-2.5z" stroke="url(#m-logo-gradient)" strokeWidth="1.5" fill="none"/>
-              <circle cx="12" cy="10" r="1.5" fill="url(#m-logo-gradient)"/>
-              <circle cx="9" cy="14" r="1.5" fill="url(#m-logo-gradient)"/>
-              <circle cx="15" cy="14" r="1.5" fill="url(#m-logo-gradient)"/>
-              <path d="M12 10L9 14M12 10L15 14M9 14H15" stroke="url(#m-logo-gradient)" strokeWidth="1.2"/>
+      <nav className="nav">
+        <div className="nav-container">
+          <a href="/" className="nav-logo">
+            <svg className="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L4 6v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V6l-8-4z" fill="url(#logo-gradient)" opacity="0.15"/>
+              <path d="M12 5.5L7 8v4c0 3.5 2.5 6.5 5 7.5 2.5-1 5-4 5-7.5V8l-5-2.5z" stroke="url(#logo-gradient)" strokeWidth="1.5" fill="none"/>
+              <circle cx="12" cy="10" r="1.5" fill="url(#logo-gradient)"/>
+              <circle cx="9" cy="14" r="1.5" fill="url(#logo-gradient)"/>
+              <circle cx="15" cy="14" r="1.5" fill="url(#logo-gradient)"/>
+              <path d="M12 10L9 14M12 10L15 14M9 14H15" stroke="url(#logo-gradient)" strokeWidth="1.2"/>
               <defs>
-                <linearGradient id="m-logo-gradient" x1="4" y1="2" x2="20" y2="20" gradientUnits="userSpaceOnUse">
+                <linearGradient id="logo-gradient" x1="4" y1="2" x2="20" y2="20" gradientUnits="userSpaceOnUse">
                   <stop stopColor="#60a5fa"/>
                   <stop offset="1" stopColor="#3b82f6"/>
                 </linearGradient>
@@ -463,15 +440,28 @@ export default function ManifiestoPage() {
             </svg>
             Grupo Digitalo
           </a>
-          <div className="m-nav-right">
-            <ul className="m-nav-links">
+          <div className="nav-right">
+            <ul className="nav-links" id="navLinks">
               <li><a href="https://servicialo.com">Protocolo</a></li>
               <li><a href="/#productos">Productos</a></li>
               <li><a href="/#nosotros">Nosotros</a></li>
               <li><a href="https://documentalo.com">Documentaci&oacute;n</a></li>
               <li><a href="/#contacto">Contacto</a></li>
+              <li><a href="/manifiesto" className="nav-link--manifiesto">Manifiesto</a></li>
             </ul>
-            <a href="/" className="m-nav-back">&larr; Volver</a>
+            <button className="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+              <svg className="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+              </svg>
+              <svg className="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+              </svg>
+            </button>
+            <button className="nav-hamburger" id="navHamburger" aria-label="Abrir menú">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
           </div>
         </div>
       </nav>

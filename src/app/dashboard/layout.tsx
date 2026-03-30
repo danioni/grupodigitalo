@@ -28,9 +28,14 @@ export default function DashboardLayout({
           <span style={{ fontSize: '1.125rem', fontWeight: 600 }}>Digitalo</span>
           <span style={{ color: '#71717a', fontSize: '0.875rem' }}>Dashboard</span>
         </div>
-        <a href="/" style={{ color: '#71717a', fontSize: '0.75rem', textDecoration: 'none' }}>
-          ← Volver al sitio
-        </a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+          <a href="/manifiesto" style={{ color: '#a1a1aa', fontSize: '0.75rem', textDecoration: 'none' }}>
+            Manifiesto
+          </a>
+          <a href="/" style={{ color: '#71717a', fontSize: '0.75rem', textDecoration: 'none' }}>
+            ← Volver al sitio
+          </a>
+        </div>
       </header>
       <main style={{ padding: '1rem 1rem', maxWidth: '1400px', margin: '0 auto' }}>
         {children}

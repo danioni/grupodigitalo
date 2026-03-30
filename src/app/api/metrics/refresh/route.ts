@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { fetchNpmMetrics } from '@/lib/metrics/npm'
 import { fetchGitHubMetrics } from '@/lib/metrics/github'
-import { fetchMcpUsageMetrics, fetchMamaProMetrics, fetchTelemetryMetrics } from '@/lib/metrics/coordinalo-db'
+import { fetchMcpUsageMetrics, fetchMamaProMetrics } from '@/lib/metrics/coordinalo-db'
+import { fetchTelemetryMetrics } from '@/lib/metrics/servicialo-registry'
 import { fetchUptimeMetrics } from '@/lib/metrics/uptime'
 import { fetchRegistryMetrics } from '@/lib/metrics/registry'
 

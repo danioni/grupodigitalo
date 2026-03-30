@@ -35,27 +35,6 @@ export interface McpUsageMetrics {
   error: string | null
 }
 
-export interface TelemetryVersionBreakdown {
-  version: string
-  count: number
-}
-
-export interface TelemetryDailyCount {
-  day: string
-  count: number
-}
-
-export interface TelemetryMetrics {
-  totalPings: number
-  pings24h: number
-  pings7d: number
-  uniqueInstances24h: number
-  versions: TelemetryVersionBreakdown[]
-  dailyCounts: TelemetryDailyCount[]
-  available: boolean
-  error: string | null
-}
-
 export interface MamaProMetrics {
   bookingsThisMonth: number
   upcomingSessions: number
@@ -189,77 +168,6 @@ export async function fetchMamaProMetrics(): Promise<MamaProMetrics> {
   }
 }
 
-export async function fetchTelemetryMetrics(): Promise<TelemetryMetrics> {
-  const empty: TelemetryMetrics = {
-    totalPings: 0,
-    pings24h: 0,
-    pings7d: 0,
-    uniqueInstances24h: 0,
-    versions: [],
-    dailyCounts: [],
-    available: false,
-    error: null,
-  }
-
-  const pool = await getPool()
-  if (!pool) {
-    return { ...empty, error: 'DATABASE_URL_COORDINALO no configurado' }
-  }
-
-  try {
-    const tableCheck = await pool.query(`
-      SELECT EXISTS (
-        SELECT FROM information_schema.tables
-        WHERE table_schema = 'public' AND table_name = 'telemetry_pings'
-      ) AS exists
-    `)
-    if (!tableCheck.rows[0]?.exists) {
-      await pool.end()
-      return { ...empty, error: 'Tabla telemetry_pings no existe' }
-    }
-
-    const [totals, versions, daily] = await Promise.all([
-      pool.query(`
-        SELECT
-          COUNT(*)::int AS total,
-          COUNT(*) FILTER (WHERE "createdAt" > NOW() - INTERVAL '24 hours')::int AS last_24h,
-          COUNT(*) FILTER (WHERE "createdAt" > NOW() - INTERVAL '7 days')::int AS last_7d,
-          COUNT(DISTINCT "ipHash") FILTER (WHERE "createdAt" > NOW() - INTERVAL '24 hours')::int AS unique_24h
-        FROM telemetry_pings
-      `),
-      pool.query(`
-        SELECT version, COUNT(*)::int AS count
-        FROM telemetry_pings
-        GROUP BY version
-        ORDER BY count DESC
-      `),
-      pool.query(`
-        SELECT "createdAt"::date AS day, COUNT(*)::int AS count
-        FROM telemetry_pings
-        WHERE "createdAt" > NOW() - INTERVAL '30 days'
-        GROUP BY "createdAt"::date
-        ORDER BY day ASC
-      `),
-    ])
-
-    await pool.end()
-
-    const row = totals.rows[0]
-    return {
-      totalPings: row?.total ?? 0,
-      pings24h: row?.last_24h ?? 0,
-      pings7d: row?.last_7d ?? 0,
-      uniqueInstances24h: row?.unique_24h ?? 0,
-      versions: versions.rows,
-      dailyCounts: daily.rows.map((r: any) => ({
-        day: r.day instanceof Date ? r.day.toISOString().slice(0, 10) : String(r.day).slice(0, 10),
-        count: r.count,
-      })),
-      available: true,
-      error: null,
-    }
-  } catch (e) {
-    try { await pool.end() } catch {}
-    return { ...empty, error: `Error DB: ${e}` }
-  }
-}
+// NOTE: telemetry_pings was removed from this file.
+// Telemetry is now fetched from servicialo-registry Supabase project.
+// See src/lib/metrics/servicialo-registry.ts

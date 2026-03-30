@@ -1,7 +1,7 @@
 'use client'
 
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
-import type { TelemetryMetrics } from '@/lib/metrics/coordinalo-db'
+import type { TelemetryMetrics } from '@/lib/metrics/servicialo-registry'
 import * as s from './styles'
 
 export function TelemetryPanel({ data }: { data: TelemetryMetrics }) {
@@ -37,8 +37,8 @@ export function TelemetryPanel({ data }: { data: TelemetryMetrics }) {
           <div style={s.statLabel}>7 dias</div>
         </div>
         <div>
-          <div style={s.statValue}>{data.uniqueInstances24h.toLocaleString('es-CL')}</div>
-          <div style={s.statLabel}>instancias unicas 24h</div>
+          <div style={s.statValue}>{data.uniqueNodes24h.toLocaleString('es-CL')}</div>
+          <div style={s.statLabel}>nodos unicos 24h</div>
         </div>
       </div>
 
@@ -60,6 +60,30 @@ export function TelemetryPanel({ data }: { data: TelemetryMetrics }) {
                 fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
               }}>
                 v{v.version} ({v.count})
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {data.countries.length > 0 && (
+        <div style={{ marginTop: '1.25rem' }}>
+          <div style={{ fontSize: '0.8125rem', color: '#a1a1aa', marginBottom: '0.5rem', fontWeight: 500 }}>
+            Paises
+          </div>
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' as const }}>
+            {data.countries.map(c => (
+              <span key={c.country_code} style={{
+                display: 'inline-block',
+                padding: '0.125rem 0.625rem',
+                borderRadius: '9999px',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                background: 'rgba(34,197,94,0.15)',
+                color: '#4ade80',
+                fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+              }}>
+                {c.country_code} ({c.count})
               </span>
             ))}
           </div>

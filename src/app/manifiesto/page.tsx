@@ -329,6 +329,34 @@ const css = `
     margin-bottom: 0;
   }
 
+  .m-colophon {
+    text-align: center;
+    margin-top: 3.5rem;
+    padding: 0 1rem;
+  }
+
+  .m-colophon p {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 2;
+    margin-bottom: 0;
+    letter-spacing: 0.01em;
+  }
+
+  .m-colophon-link {
+    display: inline-block;
+    margin-top: 2rem;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .m-colophon-link:hover { color: var(--ink); }
+
   .m-footer {
     margin-top: 4rem;
     padding-top: 2rem;
@@ -553,6 +581,20 @@ export default function ManifiestoPage() {
             Solo sobre qué infraestructura van a usar para hacerlo.<br /><br />
             <em>Esa infraestructura existe. Ya está en producción.</em>
           </p>
+        </div>
+
+        <div className="m-colophon">
+          <p>El protocolo está publicado como estándar abierto.</p>
+          <p>La implementación de referencia ya opera en producción.</p>
+          <p>Y ya hay agentes actuando sobre esta infraestructura.</p>
+          <a
+            href="https://servicialo.com/whitepaper"
+            className="m-colophon-link"
+            target="_blank"
+            rel="noopener"
+          >
+            Servicialo Protocol
+          </a>
         </div>
 
         <footer className="m-footer">

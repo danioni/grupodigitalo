@@ -462,7 +462,7 @@ export default function ManifiestoPage() {
 
           <div className="m-anchor">
             <div className="m-anchor-label">En la práctica</div>
-            <p><strong>Coordinalo</strong> es la primera interfaz de esta infraestructura — el sistema que opera el ciclo completo de un negocio de servicios, de la primera cita al cobro, sin intervención manual.</p>
+            <p><strong>Coordinalo</strong> es la primera interfaz de esta infraestructura — el sistema que opera el ciclo completo de un negocio de servicios, de la primera cita a la reconciliación, sin intervención manual.</p>
             <p>El primer nodo activo es una clínica en Santiago. Desde ahí, el C-level agéntico se expande a cualquier organización que opere sobre el protocolo Servicialo.</p>
           </div>
         </section>

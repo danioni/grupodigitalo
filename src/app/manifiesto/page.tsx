@@ -573,16 +573,16 @@ export default function ManifiestoPage() {
         </div>
 
         <div className="m-colophon">
-          <p>El protocolo está publicado como estándar abierto.</p>
-          <p>La implementación de referencia ya opera en producción.</p>
-          <p>Y ya hay agentes actuando sobre esta infraestructura.</p>
+          <p>Lo que este documento describe no es un plan. Es una descripción de lo que ya opera.</p>
+          <p>El protocolo está publicado. La implementación atiende pacientes reales en Santiago. Los agentes toman decisiones sobre datos en producción — cada una trazable, cada una auditable.</p>
+          <p>Quien quiera verificarlo, puede hacerlo.</p>
           <a
-            href="https://servicialo.com/whitepaper"
+            href="https://servicialo.com"
             className="m-colophon-link"
             target="_blank"
             rel="noopener"
           >
-            Servicialo Protocol
+            servicialo.com
           </a>
         </div>
 
